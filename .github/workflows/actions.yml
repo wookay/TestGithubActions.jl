@@ -1,0 +1,33 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  Test:
+    env:
+      JULIA_VERSION: 1.6.0
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: [JULIA_VERSION]
+        julia-arch: [x64]
+        os: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@master
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - name: runtests - basic
+        run: |
+             true
+
+  Coverage:
+    needs: Test
+    if: matrix.julia-version == JULIA_VERSION && github.event.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: coverage
+        run: |
+             true
+      - uses: codecov/codecov-action@v1
