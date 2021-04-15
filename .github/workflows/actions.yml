@@ -29,5 +29,5 @@ jobs:
       - uses: actions/checkout@master
       - name: coverage
         run: |
-             echo "JULIA_VERSION_FOR_COVERAGE ${{ JULIA_VERSION_FOR_COVERAGE }}"
+             echo "JULIA_VERSION_FOR_COVERAGE ${{ env.JULIA_VERSION_FOR_COVERAGE }}"
       - uses: codecov/codecov-action@v1
