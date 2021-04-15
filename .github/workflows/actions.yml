@@ -29,7 +29,5 @@ jobs:
       - uses: actions/checkout@master
       - name: coverage
         run: |
-             if [ "$JULIA_VERSION_FOR_COVERAGE" == {{ matrix.os }} ]; then
-                 echo "JULIA_VERSION_FOR_COVERAGE $JULIA_VERSION_FOR_COVERAGE"
-             fi
+             echo "JULIA_VERSION_FOR_COVERAGE $JULIA_VERSION_FOR_COVERAGE"
       - uses: codecov/codecov-action@v1
