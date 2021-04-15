@@ -26,16 +26,10 @@ jobs:
              echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
              echo "ok"
              true
-
-  Coverage:
-    needs: Test
-    if: github.event.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: coverage
+      - name: Coverage
+        if: github.event.ref == 'refs/heads/master'
+        runs-on: ubuntu-latest
         run: |
-             echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
-             echo "ok"
-             true
-      - uses: codecov/codecov-action@v1
+          echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
+          echo "ok"
+          true
