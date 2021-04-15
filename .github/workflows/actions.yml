@@ -19,7 +19,7 @@ jobs:
           version: ${{ matrix.julia-version }}
       - name: runtests - basic
         run: |
-             echo "JULIA_VERSION_FOR_COVERAGE=${{ JULIA_VERSION_FOR_COVERAGE }}" >> $GITHUB_ENV
+             echo "JULIA_VERSION_FOR_COVERAGE=${{ env.JULIA_VERSION_FOR_COVERAGE }}" >> $GITHUB_ENV
              true
 
   Coverage:
