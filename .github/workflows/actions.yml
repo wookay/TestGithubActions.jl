@@ -28,7 +28,6 @@ jobs:
              true
       - name: Coverage
         if: github.event.ref == 'refs/heads/master'
-        runs-on: ubuntu-latest
         run: |
           echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
           echo "ok"
