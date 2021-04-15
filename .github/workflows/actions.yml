@@ -5,11 +5,11 @@ on: [pull_request, push]
 jobs:
   Test:
     env:
-      JULIA_VERSION: 1.6.0
+      JULIA_VERSION_FOR_COVERAGE: 1.6.0
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        julia-version: [JULIA_VERSION]
+        julia-version: [JULIA_VERSION_FOR_COVERAGE]
         julia-arch: [x64]
         os: [ubuntu-latest]
     steps:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@master
       - name: coverage
         run: |
-             if [ "$JULIA_VERSION" == {{ matrix.os }} ]; then
-                 echo "JULIA_VERSION"
+             if [ "$JULIA_VERSION_FOR_COVERAGE" == {{ matrix.os }} ]; then
+                 echo "JULIA_VERSION_FOR_COVERAGE $JULIA_VERSION_FOR_COVERAGE"
              fi
       - uses: codecov/codecov-action@v1
