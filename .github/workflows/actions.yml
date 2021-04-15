@@ -23,7 +23,8 @@ jobs:
              true
       - name: runtests - variables
         run: |
-             echo "${{ env.VARIABLE1 }}"
+             echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
+             echo "ok"
              true
 
   Coverage:
@@ -34,5 +35,5 @@ jobs:
       - uses: actions/checkout@master
       - name: coverage
         run: |
-             echo "$GITHUB_ENV"
+             echo "env ${{ env }}"
       - uses: codecov/codecov-action@v1
