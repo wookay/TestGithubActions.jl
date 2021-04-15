@@ -23,7 +23,7 @@ jobs:
 
   Coverage:
     needs: Test
-    if: matrix.julia-version == JULIA_VERSION && github.event.ref == 'refs/heads/master'
+    if: ${{ matrix.julia-version == JULIA_VERSION && github.event.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
