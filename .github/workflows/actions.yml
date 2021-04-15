@@ -9,7 +9,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        julia-version: [JULIA_VERSION_FOR_COVERAGE]
+        julia-version: [${{ JULIA_VERSION_FOR_COVERAGE }}]
         julia-arch: [x64]
         os: [ubuntu-latest]
     steps:
