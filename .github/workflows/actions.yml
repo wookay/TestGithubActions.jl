@@ -35,5 +35,7 @@ jobs:
       - uses: actions/checkout@master
       - name: coverage
         run: |
-             echo "env ${{ env }}"
+             echo "env.VARIABLE1 ${{ env.VARIABLE1 }}"
+             echo "ok"
+             true
       - uses: codecov/codecov-action@v1
